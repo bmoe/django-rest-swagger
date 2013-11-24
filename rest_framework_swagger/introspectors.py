@@ -23,7 +23,7 @@ class BaseIntrospector(object):
         url_components = Path(path).components()
         last_index = len(url_components) - 1
 
-        return unicode(url_components[last_index])
+        return url_components[last_index]
 
     def get_name(self, callback):
         """
