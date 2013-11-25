@@ -6,6 +6,11 @@ from django.contrib.admindocs.utils import trim_docstring
 
 from rest_framework.views import get_view_name, get_view_description
 
+import sys
+
+if sys.version_info >= (3,):
+    unicode = str
+
 
 class BaseIntrospector(object):
 
@@ -23,7 +28,7 @@ class BaseIntrospector(object):
         url_components = Path(path).components()
         last_index = len(url_components) - 1
 
-        return url_components[last_index]
+        return unicode(url_components[last_index])
 
     def get_name(self, callback):
         """
