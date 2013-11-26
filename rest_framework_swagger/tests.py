@@ -20,6 +20,11 @@ from .urlparser import UrlParser
 from .docgenerator import DocumentationGenerator
 from .introspectors import ViewSetIntrospector, APIViewIntrospector
 
+import sys
+
+if sys.version_info >= (3,):
+    unicode = str
+
 
 class MockApiView(APIView):
     """
